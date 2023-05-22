@@ -6,43 +6,9 @@ export const asyncStorageService = {
     remove,
 }
 
-const toys = [
-    {
-        _id: 't101',
-        name: 'Talking Doll',
-        price: 123,
-        labels: ['Doll', 'Battery Powered', 'Baby'],
-        createdAt: 1631031801011,
-        inStock: true,
-    },
-    {
-        _id: 't102',
-        name: 'Baking Doll',
-        price: 25,
-        labels: ['Doll', 'Battery Powered', 'Art', 'Baby'],
-        createdAt: 1631031801012,
-        inStock: true,
-    },
-    {
-        _id: 't103',
-        name: 'Flying buzz',
-        price: 650,
-        labels: ['Outdoor','Battery Powered', 'Baby'],
-        createdAt: 1631031801015,
-        inStock: false,
-    },
-    {
-        _id: 't104',
-        name: 'Magic game',
-        price: 299,
-        labels: ['On wheels', 'Art', 'Box game', 'Puzzle'],
-        createdAt: 1631031801013,
-        inStock: false,
-    }
-]
-
+// 
 function query(entityType, delay = 500) {
-    var entities = JSON.parse(localStorage.getItem(entityType)) || toys
+    var entities = JSON.parse(localStorage.getItem(entityType)) || []
     return new Promise(resolve => setTimeout(() => resolve(entities), delay))
 }
 

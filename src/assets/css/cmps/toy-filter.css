@@ -2,12 +2,11 @@
   display: flex;
   width: 100%;
   gap: 25px;
-  background-color: var(--clr2);
+  background-color: var(--clr1);
   color: var(--clr4);
   align-items: center;
 
 }
-
 
 .toy-filter form {
   display: flex;

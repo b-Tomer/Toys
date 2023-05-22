@@ -9,12 +9,12 @@ import { login, signup } from '../store/user.action.js'
 function getEmptyCredentials() {
     return {
         fullname: '',
-        username: 'muki',
-        password: 'muki1',
+        username: '',
+        password: '',
     }
 }
 
-export function LoginSignup({ dispatch }) {
+export function LoginSignup({ onChangeLoginStatus }) {
 
     const [credentials, setCredentials] = useState(getEmptyCredentials())
     const [isSignupState, setIsSignupState] = useState(false)
@@ -30,15 +30,17 @@ export function LoginSignup({ dispatch }) {
         ev.preventDefault()
         if (isSignupState) {
             signup(credentials)
+                .then(onChangeLoginStatus)
                 .then((user) => {
                     showSuccessMsg(`Welcome ${user.fullname}`)
                 })
                 .catch(err => {
-                    showErrorMsg('OOps try again')
+                    // showErrorMsg('OOps try again')
                 })
 
         } else {
             login(credentials)
+                .then(onChangeLoginStatus)
                 .then((user) => {
                     showSuccessMsg(`Hi again ${user.fullname}`)
                 })
@@ -92,7 +94,6 @@ export function LoginSignup({ dispatch }) {
             </form>
 
             <div className="btns">
-                {/* eslint-disable-next-line */}
                 <a href="#" onClick={onToggleSignupState}>
                     {isSignupState ? 'Already a member? Login' : 'New user? Signup here'}
                 </a >
@@ -101,3 +102,4 @@ export function LoginSignup({ dispatch }) {
     )
 }
 
+{/* eslint-disable-next-line */ }

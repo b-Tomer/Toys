@@ -21,7 +21,6 @@ export function AppHeader() {
     }
 
     function onChangeLoginStatus(user) {
-        console.log('from header: ', user);
         setUser(user)
     }
 

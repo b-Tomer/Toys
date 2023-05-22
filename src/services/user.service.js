@@ -12,28 +12,20 @@ export const userService = {
     signup,
     getById,
     getLoggedinUser,
-    updateScore,
-    getEmptyCredentials
+   
 }
 
 window.us = userService
 
 function getById(userId) {
-    // return httpService.get(BASE_URL + userId)
-    return asyncStorageService.get(STORAGE_KEY, userId)
+    return httpService.get(BASE_URL + userId)
 }
 
 function login({ username, password }) {
-    // return httpService.post(BASE_URL + 'login', { username, password })
-    //     .then(user => {
-    //         if (user) return _setLoggedinUser(user)
-    //     })
-    return asyncStorageService.query(STORAGE_KEY)
-    .then(users => {
-        const user = users.find(user => user.username === username)
-        if (user) return _setLoggedinUser(user)
-        else return Promise.reject('Invalid login')
-    })
+    return httpService.post(BASE_URL + 'login', { username, password })
+        .then(user => {
+            if (user) return _setLoggedinUser(user)
+        })
 }
 
 // function login({ username, password }) {
@@ -47,13 +39,11 @@ function login({ username, password }) {
 
 function signup({ username, password, fullname }) {
     const user = { username, password, fullname, score: 10000 }
-    // return httpService.post(BASE_URL + 'signup', user)
-    //     .then(_setLoggedinUser)
-    return asyncStorageService.post(STORAGE_KEY, user)
-    .then(_setLoggedinUser)
+    return httpService.post(BASE_URL + 'signup', user)
+        .then(_setLoggedinUser)
 }
 
-function updateScore(diff) {
+// function updateScore(diff) {
 //     return userService.getById(getLoggedinUser()._id)
 //         .then(user => {
 //             if (user.score + diff < 0) return Promise.reject('No credit')
@@ -64,16 +54,13 @@ function updateScore(diff) {
 //                     return user.score
 //                 })
 //         })
-console.log(diff);
-}
+// }
 
 function logout() {
-    // return httpService.post(BASE_URL + 'logout')
-    //     .then(() => {
-    //         sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN)
-    //     })
-    sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN)
-    return Promise.resolve()
+    return httpService.post(BASE_URL + 'logout')
+        .then(() => {
+            sessionStorage.removeItem(STORAGE_KEY_LOGGEDIN)
+        })
 
 }
 
@@ -87,19 +74,7 @@ function _setLoggedinUser(user) {
     return userToSave
 }
 
-function getEmptyCredentials() {
-    return {
-        username: '',
-        password: '',
-        fullname: ''
-    }
-}
-
-
-
 // Test Data
 // userService.signup({username: 'muki', password: 'muki1', fullname: 'Muki Ja'})
 // userService.login({username: 'muki', password: 'muki1'})
-
-
 
