@@ -1,0 +1,45 @@
+@media (max-width: 760px) {
+
+    header{
+        align-items: center;
+    }
+
+    header h1,
+    h2 {
+        font-size: 1.1em;
+    }
+
+    .txt-input {
+        width: 69px;
+    }
+
+    .progress-bar h1 {
+        font-size: 0.9em;
+    }
+
+    .todo-filter p{
+        display: none;
+    }
+
+    .main-nav{
+        display: grid;
+        grid-template-columns:60px, 60px;
+        grid-template-rows: 1fr ,1fr;
+        
+    }
+
+    .main-nav a{
+        padding: 0;
+       
+    }
+    
+    .todo-list{
+        padding: 0;
+    }
+}
+
+@media (min-width: 760px) {}
+
+@media (min-width: 980px) {}
+
+@media (min-width: 1260px) {}
