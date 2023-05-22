@@ -50,8 +50,8 @@ export function ToyFilter({ onSearch, onSetFilter, onAddToy }) {
 
   function onInStock({ target }) {
     let isAll = target.checked
-if(isAll) onSetFilter({all:true})
-else onSetFilter({all:false})
+if(isAll) onSetFilter({inStock:true})
+else onSetFilter({inStock:false})
 
     // if (isAll) onSetFilterDebounce({ all: true })
     // else onSetFilterDebounce({ all: false })

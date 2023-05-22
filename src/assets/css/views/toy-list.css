@@ -1,0 +1,9 @@
+
+.toy-title{
+    padding: 20px;
+}
+
+.toy-list{
+    display: flex;
+    flex-wrap: wrap
+}

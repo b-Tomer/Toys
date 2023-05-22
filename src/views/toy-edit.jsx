@@ -53,6 +53,10 @@ export function ToyEdit() {
                     <label htmlFor="name">Name: </label>
                     <input className="txts-input" onChange={handleChange} value={toyToEdit.name} type="text" name="name" id="name" />
                 </div>
+                <div>
+                    <label htmlFor="price">Price: </label>
+                    <input className="txts-input" onChange={handleChange} value={toyToEdit.price} type="number" name="price" id="price" />
+                </div>
 
                 <div className="btns-section">
 

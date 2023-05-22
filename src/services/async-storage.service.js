@@ -29,7 +29,7 @@ const toys = [
         price: 650,
         labels: ['Outdoor','Battery Powered', 'Baby'],
         createdAt: 1631031801015,
-        inStock: true,
+        inStock: false,
     },
     {
         _id: 't104',
@@ -37,7 +37,7 @@ const toys = [
         price: 299,
         labels: ['On wheels', 'Art', 'Box game', 'Puzzle'],
         createdAt: 1631031801013,
-        inStock: true,
+        inStock: false,
     }
 ]
 

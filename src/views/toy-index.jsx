@@ -27,6 +27,7 @@ export function ToyIndex() {
 
 
   function checkIsToys() {
+    if(!toys) return
     if (toys.length === 0) dispatch({ type: SET_IS_TOYS, isToys: true })
     else dispatch({ type: SET_IS_TOYS, isToys: false })
     // loadToys(filterBy)
@@ -34,14 +35,12 @@ export function ToyIndex() {
 
   function onAddToy() {
     const toyToSave = toyService.getEmptyToy()
-    const txt = prompt('What toy?')
-    toyToSave.txt = txt
+    const name = prompt('What toy?')
+    const price = +prompt('What\'s the price?')
+    toyToSave.name = name
+    toyToSave.price = price
     saveToy(toyToSave)
       .then((savedToy) => {
-        addActivity({
-          txt: `Added a Toy (id:${savedToy._id})`,
-
-        })
         showSuccessMsg(`Toy added (id: ${savedToy._id})`)
         checkIsToys()
       })
@@ -49,7 +48,7 @@ export function ToyIndex() {
         showErrorMsg('Cannot add toy')
       })
   }
-  console.log(toys);
+  // console.log(toys);
 
   function onEditToy(toy) {
     const price = +prompt('New price?')
@@ -107,7 +106,7 @@ export function ToyIndex() {
         onAddToy={onAddToy}
       />
       {isLoading && <h3>Loading...</h3>}
-      {isToys && <h3>No toys to show..</h3>}
+      {/* {isToys && <h3>No toys to show..</h3>} */}
       <ToyList
         toys={toys}
         onRemoveToy={onRemoveToy}

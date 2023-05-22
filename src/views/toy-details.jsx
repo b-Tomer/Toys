@@ -21,7 +21,7 @@ export function ToyDetails() {
             })
     }, [])
 
-    console.log(toy);
+    // console.log(toy);
 
     if (!toy) return <h1>loadings....</h1>
     return toy && <div>
@@ -30,7 +30,7 @@ export function ToyDetails() {
         <h4>ID:{toy._id}</h4>
         <h4>Created At: {toy.createdAt}</h4>
         <h4>Labels: {toy.labels.join(', ')}</h4>
-        <h4>In Stock: { toy.inStock  ? 'Last one, hurry to buy!' : 'SOLD OUT'}</h4>
+        <h4>In Stock: { toy.inStock  ? 'Last one, hurry up!' : 'SOLD OUT'}</h4>
 
         <Link className="btn" to="/toy">Back to List</Link>
     </div>

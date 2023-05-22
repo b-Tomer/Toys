@@ -15,9 +15,9 @@
 
 /* Views */
 @import './views/about.css';
-@import './views/todo-details.css';
-@import './views/todo-edit.css';
-@import './views/todo-list.css';
+@import './views/toy-details.css';
+@import './views/toy-edit.css';
+@import './views/toy-list.css';
 @import './views/home-page.css';
 
 /* Cmps */
@@ -25,8 +25,8 @@
 @import './cmps/user-msg.css';
 @import './cmps/app-header.css';
 @import './cmps/app-footer.css';
-@import './cmps/todo-filter.css';
-@import './cmps/todo-preview.css';
+@import './cmps/toy-filter.css';
+@import './cmps/toy-preview.css';
 
 
 

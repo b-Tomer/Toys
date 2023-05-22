@@ -14,10 +14,9 @@ export function ToyPreview({ toy }) {
         <section className="toy-preview">
             <h4>{toy.name}</h4>
 
-            <p>Price: <span>${toy.price.toLocaleString()}</span></p>
+            <p>Price: <span>${toy.price}</span></p>
             <h5>{isInStockTxt}</h5>
-            <Link to={`/toy/${toy._id}`}>Details</Link> |
-            <Link to={`/toy/edit/${toy._id}`}>Edit</Link>
+          
 
         </section>
     )

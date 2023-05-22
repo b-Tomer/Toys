@@ -17,8 +17,34 @@ export const toyService = {
 }
 
 
-function query(filterBy = {}) {
+function query(filterBy = {}, sortBy = '') {
     return asyncStorageService.query(STORAGE_KEY)
+        .then((toys) => {
+            let toysToDisplay = toys
+            if (filterBy.inStock) {
+                toysToDisplay = toys.filter(toy => toy.inStock)
+            }
+            if (filterBy.search) {
+                const regExp = new RegExp(filterBy.search, 'i')
+                toysToDisplay = toys.filter(toy => regExp.test(toy.name))
+                console.log('toysToDisplay: ', toysToDisplay )
+            }
+            if (sortBy === 'createdAt') toysToDisplay = toys.sort((a, b) => a.createdAt - b.createdAt)
+            if (sortBy === 'price') toysToDisplay = toys.sort((a, b) => a.price - b.price)
+            if (sortBy === 'name') toysToDisplay = toys.sort((a, b) => {
+                if (a.name.toUpperCase() < b.name.toUpperCase()) return -1
+                else return 1
+            })
+            return Promise.resolve(toysToDisplay)
+            //     // if (filterBy.pageIdx !== undefined) {
+            //     //     let startIdx = filterBy.pageIdx * PAGE_SIZE
+            //     //     toysToDisplay = toys.slice(startIdx, startIdx + PAGE_SIZE)
+
+            //     // }
+
+
+        })
+
     // return httpService.get(BASE_URL, filterBy)
 }
 function getById(toyId) {
@@ -48,10 +74,15 @@ function save(toy) {
 }
 
 function getEmptyToy() {
-    return {
-        vendor: 'Susita-' + (Date.now() % 1000),
-        price: utilService.getRandomIntInclusive(1000, 9000),
-    }
+    return (
+        {
+            name: '',
+            price: '',
+            labels: ['Doll', 'Battery Powered', 'Baby'],
+            createdAt: 1631031801071,
+            inStock: true,
+        }
+    )
 }
 
 function getDefaultFilter() {
