@@ -45,7 +45,7 @@ export function AppHeader() {
             <nav className='main-nav'>
                {user && <NavLink to="/user" className=''>Profile</NavLink>}
                 <NavLink to="/">Home</NavLink> 
-                <NavLink to="/todo">Toys</NavLink>
+                <NavLink to="/toy">Toys</NavLink>
             </nav>
         </header>
     )

@@ -1,4 +1,4 @@
-export const storageService = {
+export const asyncStorageService = {
     query,
     get,
     post,
@@ -6,8 +6,43 @@ export const storageService = {
     remove,
 }
 
+const toys = [
+    {
+        _id: 't101',
+        name: 'Talking Doll',
+        price: 123,
+        labels: ['Doll', 'Battery Powered', 'Baby'],
+        createdAt: 1631031801011,
+        inStock: true,
+    },
+    {
+        _id: 't102',
+        name: 'Baking Doll',
+        price: 25,
+        labels: ['Doll', 'Battery Powered', 'Art', 'Baby'],
+        createdAt: 1631031801012,
+        inStock: true,
+    },
+    {
+        _id: 't103',
+        name: 'Flying buzz',
+        price: 650,
+        labels: ['Outdoor','Battery Powered', 'Baby'],
+        createdAt: 1631031801015,
+        inStock: true,
+    },
+    {
+        _id: 't104',
+        name: 'Magic game',
+        price: 299,
+        labels: ['On wheels', 'Art', 'Box game', 'Puzzle'],
+        createdAt: 1631031801013,
+        inStock: true,
+    }
+]
+
 function query(entityType, delay = 500) {
-    var entities = JSON.parse(localStorage.getItem(entityType)) || []
+    var entities = JSON.parse(localStorage.getItem(entityType)) || toys
     return new Promise(resolve => setTimeout(() => resolve(entities), delay))
 }
 
@@ -20,7 +55,7 @@ function get(entityType, entityId) {
 }
 
 function post(entityType, newEntity) {
-    newEntity = {...newEntity}
+    newEntity = { ...newEntity }
     newEntity._id = _makeId()
     return query(entityType).then(entities => {
         entities.push(newEntity)

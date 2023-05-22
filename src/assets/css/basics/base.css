@@ -59,16 +59,17 @@ object {
 }
 
 .txt-input {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     border: 0;
     border-radius: 0.5em;
     margin-left: 5px;
-    height: 30px;
+    height: 40px;
 }
 
-.round{
+.round {
     border-radius: 50%;
 }
 
-input:focus{
+input:focus {
     outline: none;
 }

@@ -7,7 +7,9 @@ import './assets/css/main.css';
 import { Home } from './views/home';
 import { UserProfile } from './views/user-profile';
 import { About } from './views/about';
-import { TodoEdit } from './views/todo-edit';
+import { ToyEdit } from './views/toy-edit';
+import { ToyIndex } from './views/toy-index';
+import { ToyDetails } from './views/toy-details';
 
 
 export function App() {
@@ -19,11 +21,11 @@ export function App() {
                 <AppHeader />
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/todo" element={<TodoIndex />} />
+                    <Route path="/toy" element={<ToyIndex />} />
                     <Route path="/user" element={<UserProfile />} />
                     <Route path="/about" element={<About />} />
-                    {/* <Route path="/todo/edit/:todoId" element={<TodoEdit />} /> */}
-                    {/* <Route path="/todo/details/:todoId" element={<TodoDetails />} /> */}
+                    <Route path="/toy/edit/:toyId" element={<ToyEdit />} />
+                    <Route path="/toy/details/:toyId" element={<ToyDetails />} />
                 </Routes>
                 <AppFooter />
             </section>
