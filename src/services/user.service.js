@@ -12,7 +12,8 @@ export const userService = {
     signup,
     getById,
     getLoggedinUser,
-   
+    getEmptyCredentials,
+    editUser
 }
 
 window.us = userService
@@ -64,6 +65,19 @@ function logout() {
 
 }
 
+function editUser(newName) {
+    return userService.getById(getLoggedinUser()._id)
+        .then(user => {
+            if (!user._id) return Promise.reject('Not logged in')
+            user.fullname = newName
+            console.log('user: ', user )
+            return httpService.put(BASE_URL + 'edit' , user)
+                .then((user) => {
+                    _setLoggedinUser(user)
+                })
+        })
+}
+
 function getLoggedinUser() {
     return JSON.parse(sessionStorage.getItem(STORAGE_KEY_LOGGEDIN))
 }
@@ -72,6 +86,14 @@ function _setLoggedinUser(user) {
     const userToSave = { _id: user._id, fullname: user.fullname, score: user.score }
     sessionStorage.setItem(STORAGE_KEY_LOGGEDIN, JSON.stringify(userToSave))
     return userToSave
+}
+
+function getEmptyCredentials() {
+    return {
+        username: '',
+        password: '',
+        fullname: ''
+    }
 }
 
 // Test Data

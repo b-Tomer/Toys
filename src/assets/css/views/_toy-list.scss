@@ -1,0 +1,37 @@
+.toy-title {
+    padding: 20px;
+}
+
+.toy-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.toy-card{
+    background-color: $pink2;
+    color: var(--clr4);
+    border-radius: .7em;
+    margin: 5px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    line-height: 1em;
+    @include flexCenter('space-between');
+    line-height: 1.5em;
+}
+
+.paging {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: 40px;
+    align-items: center;
+}
+
+.paging-txt {
+
+    font-size: 1.2em;
+    font-weight: 600;
+}
+

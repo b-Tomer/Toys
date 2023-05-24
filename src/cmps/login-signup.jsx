@@ -59,11 +59,12 @@ export function LoginSignup({ onChangeLoginStatus }) {
     const { username, password, fullname } = credentials
 
     return (
-        <div className="login-page">
+        <div className="">
 
             <form className="login-form" onSubmit={onSubmit}>
                 <input
                     type="text"
+                    className='txt-input'
                     name="username"
                     value={username}
                     placeholder="Username"
@@ -74,6 +75,7 @@ export function LoginSignup({ onChangeLoginStatus }) {
 
                 <input
                     type="password"
+                    className='txt-input'
                     name="password"
                     value={password}
                     placeholder="Password"
@@ -84,13 +86,14 @@ export function LoginSignup({ onChangeLoginStatus }) {
                 {isSignupState && <input
                     type="text"
                     name="fullname"
+                    className='txt-input'
                     value={fullname}
                     placeholder="Full name"
                     onChange={handleCredentialsChange}
                     required
                 />}
 
-                <button>{isSignupState ? 'Signup' : 'Login'}</button>
+                <button className='btn log-btn'>{isSignupState ? 'Signup' : 'Login'}</button>
             </form>
 
             <div className="btns">

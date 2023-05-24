@@ -13,7 +13,6 @@ export function ToyPreview({ toy }) {
 
         <section className="toy-preview">
             <h4>{toy.name}</h4>
-
             <p>Price: <span>${toy.price}</span></p>
             <h5>{isInStockTxt}</h5>
           

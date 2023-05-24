@@ -1,21 +1,18 @@
-
-.main-content{
+.main-content {
   display: flex;
   justify-content: center;
 }
 
-
 .main-layout {
   display: grid;
   grid-template-columns: 20px 1fr 20px;
-
 }
 
-.fully{
+.fully {
   grid-column: 1/-1;
 }
 
-.main-layout>* {
+.main-layout > * {
   grid-column: 2;
 }
 
@@ -38,5 +35,5 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 20px
-}
+  gap: 20px;
+}/*# sourceMappingURL=layout.css.map */

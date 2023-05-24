@@ -1,0 +1,41 @@
+header {
+    background-color: $pink3;
+    padding: 10px;
+    color: $clr1;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    min-height: 90px;
+
+    nav{
+        a {
+            display: inline-block;
+            margin: 3px;
+            padding: 10px;
+            border-bottom: 1px solid transparent;
+            text-decoration: none;
+            &:hover {
+                border-bottom: 1px solid whitesmoke;
+                text-decoration: overline;
+                color: whitesmoke;
+            }
+        }
+    } 
+}
+
+
+
+.login-container {
+    display: flex;
+    gap: 5px;
+    text-align: center;
+}
+
+.log-btn {
+    font-weight: 600;
+    color: $clr1;
+    &:hover {
+        background: #f4d0d09e;
+    }
+}
+

@@ -5,7 +5,6 @@
   background-color: var(--clr1);
   color: var(--clr4);
   align-items: center;
-
 }
 
 .toy-filter form {
@@ -14,7 +13,7 @@
   gap: 15px;
 }
 
-input[type="range"] {
+input[type=range] {
   margin-left: 5px;
   -webkit-appearance: none;
   margin-right: 15px;
@@ -26,7 +25,7 @@ input[type="range"] {
   background-repeat: no-repeat;
 }
 
-input[type="range"]::-webkit-slider-thumb {
+input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   cursor: pointer;
   height: 20px;
@@ -38,7 +37,7 @@ input[type="range"]::-webkit-slider-thumb {
 
 .dropdown-wrapper {
   position: relative;
-  transform: translate(45vw, -20px)
+  transform: translate(45vw, -20px);
 }
 
 .dropdown {
@@ -54,7 +53,6 @@ input[type="range"]::-webkit-slider-thumb {
   max-height: 40px;
   border-radius: 0.5em;
   max-height: 40px;
-
 }
 
 .dropdown.open {
@@ -79,11 +77,11 @@ input[type="range"]::-webkit-slider-thumb {
   padding: 8px;
 }
 
-.dropdown-options div input[type="checkbox"] {
+.dropdown-options div input[type=checkbox] {
   margin-right: 8px;
 }
 
 /* Styling for selected options */
-.dropdown-options div input[type="checkbox"]:checked+label {
+.dropdown-options div input[type=checkbox]:checked + label {
   font-weight: bold;
-}
+}/*# sourceMappingURL=toy-filter.css.map */

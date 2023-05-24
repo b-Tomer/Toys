@@ -13,7 +13,8 @@ export const toyService = {
     save,
     remove,
     getEmptyToy,
-    getDefaultFilter
+    getDefaultFilter,
+    getLabelsData
 }
 
 
@@ -55,6 +56,46 @@ function getEmptyToy() {
 
 function getDefaultFilter() {
     return { txt: '', maxPrice: 0 }
+}
+
+
+
+
+function getLabelsData(){
+    return {
+        
+    labels: ['On wheels', 'Box game', 'Art', 'Baby', 'Doll', 'Puzzle',
+    'Outdoor', 'Battery Powered'],
+datasets: [
+    {
+        label: '# of Votes',
+        data: [3, 1, 10, 9, 3, 8, 6, 9],
+        backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgb(212, 239, 144, 0.2)',
+            'rgb(181, 181, 181, 0.2)',
+
+        ],
+        borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)',
+            'rgb(212, 239, 144, 1)',
+            'rgb(181, 181, 181, 1)',
+
+        ],
+        borderWidth: 1,
+    },
+],
+    }
 }
 
 // TEST DATA

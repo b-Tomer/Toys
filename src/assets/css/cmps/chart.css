@@ -1,0 +1,11 @@
+.charts {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  color: rgb(248, 174, 174);
+}
+
+.chart {
+  width: 380px;
+  margin: auto;
+}/*# sourceMappingURL=chart.css.map */

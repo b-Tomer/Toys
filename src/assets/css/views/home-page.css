@@ -1,5 +1,12 @@
-.home{
-    background:url('https://media.istockphoto.com/id/1285308242/photo/to-do-list-text-on-notepad.jpg?s=612x612&w=0&k=20&c=p85bCVQZwvkrqqqNOJGg2QuPDu6ynTlQHkASQOTELh8=');
-    height: 72vh;
-    background-size: cover;
+.home {
+  background: url("https://wallpaperaccess.com/full/1161069.jpg");
+  height: 72vh;
+  background-size: cover;
 }
+
+.home-page {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 10px;
+}/*# sourceMappingURL=home-page.css.map */

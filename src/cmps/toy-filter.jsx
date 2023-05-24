@@ -11,8 +11,8 @@ export function ToyFilter({ onSearch, onSetFilter, onAddToy }) {
   const [selectedOptions, setSelectedOptions] = useState([])
   const [dropdownVisible, setDropdownVisible] = useState(false)
   // const sortBy = useSelector((storeState) => storeState.toyModule.sortBy)
-  
-  
+
+
   const options = [
     { label: 'On wheels', value: 'onWheels' },
     { label: 'Box game', value: 'boxGame' },
@@ -28,19 +28,30 @@ export function ToyFilter({ onSearch, onSetFilter, onAddToy }) {
     onSetFilterDebounce.current(filterBy)
   }, [])
 
-  function toggleDropdown(){
+  function toggleDropdown() {
     setDropdownVisible((prevState) => !prevState)
   }
 
 
-  const handleOptionChange = (event) => {
-    const { value, checked } = event.target;
-    if (checked) {
-      setSelectedOptions([...selectedOptions, value]);
-    } else {
-      setSelectedOptions(selectedOptions.filter((option) => option !== value));
-    }
+  function handleOptionChange(ev) {
+    const { value, checked } = ev.target;
+    const updatedSelectedOptions = checked
+      ? [...selectedOptions, value]
+      : selectedOptions.filter((option) => {
+        console.log('option, value: ',option, value)
+     return option !== value
+      })
+    setSelectedOptions(updatedSelectedOptions);
+  
+    const selected = updatedSelectedOptions.reduce((acc, item) => {
+      acc[item] = updatedSelectedOptions.includes(item);
+      return acc;
+    }, {});
+  
+    console.log("from filter: ",selected);
+    onSetFilter(selected);
   }
+  
 
   function onHandleSearch(ev) {
     const val = ev.target.value
@@ -50,11 +61,9 @@ export function ToyFilter({ onSearch, onSetFilter, onAddToy }) {
 
   function onInStock({ target }) {
     let isAll = target.checked
-if(isAll) onSetFilter({inStock:true})
-else onSetFilter({inStock:false})
+    if (isAll) onSetFilter({ inStock: true })
+    else onSetFilter({ inStock: false })
 
-    // if (isAll) onSetFilterDebounce({ all: true })
-    // else onSetFilterDebounce({ all: false })
   }
 
   function onSortBy(ev) {
@@ -65,46 +74,46 @@ else onSetFilter({inStock:false})
 
   return (
     <section className="toy-filter fully">
-    <p>Filters:</p>
+      <p>Filters:</p>
 
-    <select onChange={onSortBy} className="txt-input" name="sort" id="sort">
-      <option value="title">Name</option>
-      <option value="price">Price</option>
-      <option value="createdAt">Created At</option>
-    </select>
-  
-    <div className="dropdown-wrapper">
-      <div className={`dropdown ${dropdownVisible ? 'open' : ''}`}>
-        <div className="dropdown-toggle" onClick={toggleDropdown}>
-          Select Categories
-        </div>
-        <div className="dropdown-options">
-          {options.map((option) => (
-            <div key={option.value}>
-              <input
-                type="checkbox"
-                id={option.value}
-                value={option.value}
-                checked={selectedOptions.includes(option.value)}
-                onChange={handleOptionChange}
-              />
-              <label htmlFor={option.value}>{option.label}</label>
-            </div>
-          ))}
+      <select onChange={onSortBy} className="txt-input" name="sort" id="sort">
+        <option value="title">Name</option>
+        <option value="price">Price</option>
+        <option value="createdAt">Created At</option>
+      </select>
+
+      <div className="dropdown-wrapper">
+        <div className={`dropdown ${dropdownVisible ? 'open' : ''}`}>
+          <div className="dropdown-toggle" onClick={toggleDropdown}>
+            Select Categories
+          </div>
+          <div className="dropdown-options">
+            {options.map((option) => (
+              <div key={option.value}>
+                <input
+                  type="checkbox"
+                  id={option.value}
+                  value={option.value}
+                  checked={selectedOptions.includes(option.value)}
+                  onChange={handleOptionChange}
+                />
+                <label htmlFor={option.value}>{option.label}</label>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
 
-    <div className="lables">
-      <div>
-        <input type="checkbox" onChange={onInStock} id="all" />
-        <label htmlFor="inStock">In stock</label>
+      <div className="lables">
+        <div>
+          <input type="checkbox" onChange={onInStock} id="all" />
+          <label htmlFor="inStock">In stock</label>
+        </div>
       </div>
-    </div>
-    <input type="search" className="txt-input" placeholder="search" onChange={onHandleSearch} />
-    <button className="btn" onClick={onAddToy}>
-      Add Toy
-    </button>
-  </section>
+      <input type="search" className="txt-input" placeholder="search" onChange={onHandleSearch} />
+      <button className="btn" onClick={onAddToy}>
+        Add Toy
+      </button>
+    </section>
   );
 }

@@ -11,6 +11,7 @@ import { addActivity } from '../store/user.action.js'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
+
 export function ToyIndex() {
   const dispatch = useDispatch()
   const toys = useSelector((storeState) => storeState.toyModule.toys)
@@ -26,8 +27,9 @@ export function ToyIndex() {
   }, [filterBy, sortBy])
 
 
+
   function checkIsToys() {
-    if(!toys) return
+    if (!toys) return
     if (toys.length === 0) dispatch({ type: SET_IS_TOYS, isToys: true })
     else dispatch({ type: SET_IS_TOYS, isToys: false })
     // loadToys(filterBy)
@@ -79,6 +81,7 @@ export function ToyIndex() {
   }
 
   function onSetFilter(filterToEdit) {
+    console.log(filterToEdit)
     dispatch({ type: FILTER_BY, filterToEdit })
   }
 
@@ -113,11 +116,17 @@ export function ToyIndex() {
         onEditToy={onEditToy}
 
       />
-      <section className='paging'>
-        <button className='btn paging-txt' onClick={() => onChangePageIdx(-1)}>-</button>
+
+      {/* <Login/> */}
+      {/* <MultySelect /> */}
+      {/* <section className='paging'> */}
+        {/* <button className='btn paging-txt' onClick={() => onChangePageIdx(-1)}>-</button>
+        
+        
+        */}
         {/* <span className='paging-txt'>{filterBy.pageIdx + 1}</span> */}
-        <button className='btn paging-txt' onClick={() => onChangePageIdx(1)}>+</button>
-      </section>
+        {/* <button className='btn paging-txt' onClick={() => onChangePageIdx(1)}>+</button> */}
+      {/* </section> */}
     </section>
   )
 }

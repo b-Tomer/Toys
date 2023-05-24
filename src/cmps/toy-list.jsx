@@ -8,7 +8,7 @@ export function ToyList({ toys, onRemoveToy ,progressPrecent}) {
   
     return <ul className="toy-list">
         {toys.map(toy =>
-            <li className="toy-preview" key={toy._id}>
+            <li className="toy-card" key={toy._id}>
                 <ToyPreview toy={toy} progressPrecent={progressPrecent} />
                 <div className="options">
                     <Link className="btn" to={`/toy/details/${toy._id}`}><i className="fa-solid fa-info"></i></Link>

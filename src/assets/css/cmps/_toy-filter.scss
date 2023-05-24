@@ -1,0 +1,66 @@
+.toy-filter {
+  display: flex;
+  width: 100%;
+  gap: 25px;
+  background-color: $clr1;
+  color: $clr4;
+  align-items: center;
+
+}
+
+.toy-filter form {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.dropdown-wrapper {
+  position: relative;
+  transform: translate(45vw, -20px)
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 170px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  max-height: 40px;
+  border-radius: 0.5em;
+  max-height: 40px;
+
+}
+
+.dropdown.open {
+  max-height: 200px;
+  /* Adjust the max-height as needed */
+}
+
+.dropdown-toggle {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-options {
+  max-height: 200px;
+  overflow-y: auto;
+  transition: all 0.3s ease;
+}
+
+.dropdown-options div {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+}
+
+.dropdown-options div input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+/* Styling for selected options */
+.dropdown-options div input[type="checkbox"]:checked+label {
+  font-weight: bold;
+}

@@ -21,8 +21,10 @@ export function toyReducer(state = initialState, action) {
     // console.log('action', action)
     let toys
     let filterBy
+    if (action.type === FILTER_BY) {
 
-
+        console.log('action: ', action)
+    }
     switch (action.type) {
         // Toys
         case SET_IS_LOADING:

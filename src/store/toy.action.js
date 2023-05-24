@@ -5,9 +5,11 @@ import { ADD_TOY, REMOVE_TOY, SET_TOYS, SET_IS_LOADING, UPDATE_TOY } from './toy
 
 
 export function loadToys(filterBy, sortBy) {
+    console.log('filterBy from action: ', filterBy )
     store.dispatch({ type: SET_IS_LOADING, isLoading: true })
     return toyService.query(filterBy, sortBy)
         .then((toys) => {
+            console.log('toys from action: ', toys )
             store.dispatch({ type: SET_TOYS, toys })
         })
         .catch(err => {

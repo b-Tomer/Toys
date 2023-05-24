@@ -1,0 +1,34 @@
+
+
+.toy-preview {
+    background-color: $pink2;
+    color: var(--clr4);
+    border-radius: .7em;
+    margin: 5px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    line-height: 1em;
+    @include flexCenter('space-between');
+    line-height: 1.5em;
+    width: 140px;
+    .toy-txt {
+        display: flex;
+        width: 100%;
+    }
+
+    .toy-lable-txt {
+        width: 100%;
+        display: flex;
+        padding: 0 7px;
+        align-content: center;
+        justify-content: space-between;
+    }
+}
+.options {
+    display: flex;
+    align-items: center;
+}
+
+
+

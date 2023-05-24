@@ -16,13 +16,16 @@ export function UserProfile() {
     const val = ev.target.value
     user.fullname = val
     dispatch({ type: SET_USER, user })
-    userService.editUser(val)
   }
-
+  
+  function onSubmit(){
+    userService.editUser(user)
+  }
 
 
   return (
     <div style={userStyle} className='user-profile'>
+      <form action="" onSubmit={onSubmit}>
       <h1>personal details</h1>
       <h3>Name: {user.fullname}</h3>
       <input
@@ -31,16 +34,9 @@ export function UserProfile() {
         name='fullname'
         placeholder='change name?'
         onChange={handelNameChange}
-      />
-     
-      <h4>Activities:</h4>
-      <ul>
-        {user.activities.map((activity, index) => (
-          <li key={index}>
-            {activity.txt} - {activity.At}
-          </li>
-        ))}
-      </ul>
+        />
+      <button>Ok</button>
+        </form>
     </div>
   )
 }
