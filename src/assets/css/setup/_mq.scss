@@ -1,6 +1,6 @@
 @media (max-width: 760px) {
 
-    header{
+    header {
         align-items: center;
     }
 
@@ -12,28 +12,43 @@
     .txt-input {
         width: 69px;
     }
-
-    .progress-bar h1 {
-        font-size: 0.9em;
-    }
-
-    .todo-filter p{
-        display: none;
-    }
-
-    .main-nav{
-        display: grid;
-        grid-template-columns:60px, 60px;
-        grid-template-rows: 1fr ,1fr;
-        
-    }
-
-    .main-nav a{
-        padding: 0;
-       
-    }
     
-    .todo-list{
+    ul{
+        padding-inline-start: 0px;
+    }
+
+    .dropdown-wrapper {
+        transform: translate(55vw, -20px)
+      }
+
+    .toy-filter {
+        gap:2px;
+        p {
+            display: none;
+        }
+        .dropdown{
+            width: 95px;
+
+        }
+    }
+
+.main-layout {
+
+  grid-template-columns: 0px 1fr 0px;
+}
+    .main-nav {
+        display: grid;
+        grid-template-columns: 60px, 60px;
+        grid-template-rows: 1fr, 1fr;
+
+    }
+
+    .main-nav a {
+        padding: 0;
+
+    }
+
+    .todo-list {
         padding: 0;
     }
 }

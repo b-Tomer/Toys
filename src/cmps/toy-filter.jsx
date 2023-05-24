@@ -73,7 +73,7 @@ export function ToyFilter({ onSearch, onSetFilter, onAddToy }) {
   }
 
   return (
-    <section className="toy-filter fully">
+    <section className="toy-filter full">
       <p>Filters:</p>
 
       <select onChange={onSortBy} className="txt-input" name="sort" id="sort">
@@ -85,7 +85,7 @@ export function ToyFilter({ onSearch, onSetFilter, onAddToy }) {
       <div className="dropdown-wrapper">
         <div className={`dropdown ${dropdownVisible ? 'open' : ''}`}>
           <div className="dropdown-toggle" onClick={toggleDropdown}>
-            Select Categories
+          Categories
           </div>
           <div className="dropdown-options">
             {options.map((option) => (

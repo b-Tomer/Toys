@@ -8,35 +8,6 @@
     font-family: roboto-bold;
     src: url('../../fonts//Roboto-Bold.ttf');
 } */
-@media (max-width: 760px) {
-  header {
-    align-items: center;
-  }
-  header h1,
-  h2 {
-    font-size: 1.1em;
-  }
-  .txt-input {
-    width: 69px;
-  }
-  .progress-bar h1 {
-    font-size: 0.9em;
-  }
-  .todo-filter p {
-    display: none;
-  }
-  .main-nav {
-    display: grid;
-    grid-template-columns: 60px, 60px;
-    grid-template-rows: 1fr, 1fr;
-  }
-  .main-nav a {
-    padding: 0;
-  }
-  .todo-list {
-    padding: 0;
-  }
-}
 /* Basics */
 * {
   box-sizing: border-box;
@@ -566,4 +537,47 @@ footer i {
 .chart {
   width: 380px;
   margin: auto;
+}
+
+@media (max-width: 760px) {
+  header {
+    align-items: center;
+  }
+  header h1,
+  h2 {
+    font-size: 1.1em;
+  }
+  .txt-input {
+    width: 69px;
+  }
+  ul {
+    -webkit-padding-start: 0px;
+            padding-inline-start: 0px;
+  }
+  .dropdown-wrapper {
+    transform: translate(55vw, -20px);
+  }
+  .toy-filter {
+    gap: 2px;
+  }
+  .toy-filter p {
+    display: none;
+  }
+  .toy-filter .dropdown {
+    width: 95px;
+  }
+  .main-layout {
+    grid-template-columns: 0px 1fr 0px;
+  }
+  .main-nav {
+    display: grid;
+    grid-template-columns: 60px, 60px;
+    grid-template-rows: 1fr, 1fr;
+  }
+  .main-nav a {
+    padding: 0;
+  }
+  .todo-list {
+    padding: 0;
+  }
 }/*# sourceMappingURL=main.css.map */

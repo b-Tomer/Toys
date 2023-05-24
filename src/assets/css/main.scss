@@ -5,7 +5,6 @@
 @import './setup/functions';
 @import './setup/variables';
 @import './setup/typography';
-@import './setup/mq';
 
 
 /* Basics */
@@ -32,6 +31,7 @@
 
 
 
+@import './setup/mq';
 
 
 
